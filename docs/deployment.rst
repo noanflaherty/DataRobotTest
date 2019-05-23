@@ -53,9 +53,9 @@ simple deployment on https://www.pythonanywhere.com
 
 8. Create .env file in the console
 
- 1. `cp /DataRobotTest/.env.sample /DataRobotTest/.env`
+ 1. `cp DataRobotTest/.env.sample DataRobotTest/.env`
 
- 2. change vars in .env file
+ 2. change vars in .env file (make sure DB_NAME will set correctly)
 
 9. Set those variables in the console (https://help.pythonanywhere.com/pages/environment-variables-for-web-apps/)
 
