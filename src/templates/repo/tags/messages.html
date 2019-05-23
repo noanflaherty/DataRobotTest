@@ -1,0 +1,10 @@
+{% if messages %}
+    {% for message in messages %}
+        <div class="text-center alert{% if message.tags %}
+            alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}
+            {% endif %}">
+            <button class="close" type="button" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}

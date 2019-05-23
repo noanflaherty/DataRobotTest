@@ -1,0 +1,16 @@
+import os
+import sys
+from dotenv import load_dotenv
+
+project_folder = os.path.expanduser('~/DataRobotTest')
+load_dotenv(os.path.join(project_folder, '.env'))
+
+path = '/home/<username>/DataRobotTest/src'
+if path not in sys.path:
+    sys.path.append(path)
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'data_test.settings'
+
+## then, for django >=1.5:
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()

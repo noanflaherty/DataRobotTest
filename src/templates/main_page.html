@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load i18n crispy_forms_tags repo_tags %}
+
+{% block title %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-4 mb-4">{% trans 'copy repo'|capfirst %}!</h1>
+        {% show_messages %}
+        <form action="" method="post" id="copyRepoForm">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success" id="copyButton">
+                <span id="buttonText">{% trans 'Copy' %}</span>
+                <span id="buttonLoading" style="display: none">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    <span>Loading...</span>
+                </span>
+            </button>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let form = $('#copyRepoForm');
+        let button = $('#copyButton');
+        let buttonText = $('#buttonText');
+        let buttonLoading = $('#buttonLoading');
+        form.on('submit', function(e){
+            button.attr('disabled', true);
+            button.attr('disabled', true);
+            buttonText.hide();
+            buttonLoading.show()
+        })
+    </script>
+{% endblock %}
